@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGC Gym - Home</title>
+    <link rel="stylesheet" href="cardio.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .welcome {
+            position: relative;
+            width: 100vw;
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: url('Images/background.png') no-repeat center center/cover;
+            margin-bottom: 0;
+        }
+        nav{
+            z-index:100;
+        }
+        .welcome-over {
+            position: absolute;
+            width: 100vw;
+            height: 100%;
+            top: 0; left: 0; 
+            z-index:1;
+            background: linear-gradient(90deg, rgba(14,43,41,0.87) 0%, rgba(31,50,53,0.53) 85%);
+        }
+        .welcome-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            text-align: left;
+            max-width: 600px;
+            margin-left: 5vw;
+        }
+        .welcome-title {
+            font-size: 3em;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+        .welcome-subtitle {
+            font-size: 1.35em;
+            color: #e0e0e0;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+        .journey {
+            display: inline-block;
+            background: linear-gradient(90deg, #23ccb0 10%, #25d4af 100%);
+            color: #171c21;
+            font-weight: bold;
+            font-size: 1.17em;
+            padding: 15px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 18px rgba(36,113,163,0.09);
+            transition: transform 0.13s, box-shadow 0.22s;
+        }
+        .journey:hover {
+            background: linear-gradient(90deg, #25d4af 10%, #29998a 100%);
+            color: #fff;
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(30, 134, 108, 0.21);
+        }
+        .intro-section {
+            padding: 48px 6vw 36px 6vw;
+            background: transparent;
+            text-align: center;
+        }
+        .intro-content h2 {
+            font-size: 2.1em;
+            color: #23ccb0;
+            margin-bottom: 14px;
+            font-family: 'Baloo 2', Arial, sans-serif;
+        }
+        .intro-content p {
+            font-size: 1.21em;
+            color: #e0e0e0;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .motivation-section {
+            background: rgba(36,113,163,0.09);
+            border-radius: 20px;
+            margin: 32px auto 26px auto;
+            padding: 40px 32px 44px 32px;
+            max-width: 620px;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(62, 210, 195, 0.11);
+        }
+        .motivation-section h2 {
+            color: #23ccb0;
+            margin-bottom: 26px;
+            font-size: 1.5em;
+        }
+        .quoteList {
+            position: relative;
+            min-height: 58px;
+        }
+        .quoteList .quote {
+            opacity: 0;
+            position: absolute;
+            left: 0; right: 0;
+            top: 0;
+            width: 100%;
+            transition: opacity 0.7s;
+            font-size: 1.36em;
+            color: #fff;
+            font-family: 'Baloo 2', Arial, sans-serif;
+            font-style: italic;
+            letter-spacing: 0.3px;
+            z-index: 1;
+        }
+        .quoteList .quote.active {
+            opacity: 1;
+            position: relative;
+            z-index: 2;
+        }
+        /* Why Choose Us Section */
+        .why-section {
+            padding: 48px 6vw 32px 6vw;
+            text-align: center;
+            background: transparent;
+        }
+        .why-section h2 {
+            color: #23ccb0;
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-family: 'Baloo 2', Arial, sans-serif;
+        }
+        .why-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 18px;
+        }
+        .why-feature-card {
+            background: linear-gradient(90deg, #182c32 70%, #26dcb8 130%);
+            color: #fff;
+            min-width: 220px;
+            max-width: 340px;
+            padding: 36px 24px 28px 24px;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(62,210,195,0.13);
+            margin-bottom: 16px;
+            text-align: center;
+            transition: transform 0.13s, box-shadow 0.17s;
+            font-size: 1.1em;
+        }
+        .why-feature-card:hover {
+            transform: translateY(-6px) scale(1.035);
+            box-shadow: 0 10px 24px rgba(36,113,163,0.14);
+        }
+        .why-feature-icon {
+            font-size: 2.3em;
+            margin-bottom: 18px;
+            color: #23ccb0;
+        }
+        @media (max-width: 900px) {
+            .welcome-content {
+                text-align: center;
+                margin-left: 0;
+                max-width: 96vw;
+                padding: 0 2vw;
+            }
+            .welcome {
+                min-height: 350px;
+                background-position: 60% 20%;
+            }
+            .welcome-title {
+                font-size: 2em;
+            }
+            .motivation-section {
+                max-width: 96vw;
+                padding: 30px 2vw 34px 2vw;
+            }
+            .why-features {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .why-feature-card {
+                max-width: 98vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <button class="toggle" id="navToggle">&#9776;</button>
+        <ul>
+            <li>
+                <a href="home.html" class="active">Home</a>
+            </li>
+            <li>
+                <a href="Cardio.html" >Cardio</a>
+            </li>
+            <li>
+                <a href="Strength.html" >Strength</a>
+            </li>
+            <li>
+                <a href="nutrition.html" >Nutrition</a>
+            </li>
+            <li>
+                <a href="supplements.html" >Supplements</a>
+            </li>
+            <li>
+                <a href="tracker.html" >Progress</a>
+            </li>
+            <li>
+                <a href="motivation.html" >Motivation</a>
+            </li>
+        </ul>
+    </nav>
+
+    <header class="welcome">
+        <div class="welcome-over"></div>
+        <div class="welcome-content">
+            <h1 class="welcome-title">
+                Welcome to <span class="highlight">PGC Gym</span>
+            </h1>
+            <p class="welcome-subtitle">
+                Unleash Your Potential. <br>
+                Transform your body. Transform your life.
+            </p>
+            <a href="Cardio.html" class="journey">Start Your Fitness Journey</a>
+        </div>
+    </header>
+    <!-- About/Intro Section -->
+    <section class="intro-section">
+        <div class="intro-content">
+            <h2>What is PGC Gym?</h2>
+            <p>
+                PGC Gym is your ultimate online destination for achieving total fitness-wherever you are.
+                Explore expert workouts, nutrition tips, progress tracking, and more. Whether you're a beginner or an athlete, you will find personalized tools and motivation here to help you crush your goals.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-section">
+        <h2>Why Choose us?</h2>
+        <div class="why-features">
+            <div class="why-feature-card">
+                <div class="why-feature-icon">💪</div>
+                <div><b>Expert Workouts & Routines</b></div>
+                <div>Programs designed by professionals, proven to build strength, endurance, and confidence. </div>
+            </div>
+                <div class="why-feature-card">
+                <div class="why-feature-icon">🏡</div>
+                <div><b>Train Anywhere</b></div>
+                <div>Home, gym, or outdoors—find workouts to suit every location and schedule.</div>
+            </div>
+                <div class="why-feature-card">
+                <div class="why-feature-icon">📈</div>
+                <div><b>Progress Tracking</b></div>
+                <div>Track your progress with built-in tools and reach your milestones faster</div>
+            </div>
+                <div class="why-feature-card">
+                <div class="why-feature-icon">🌱</div>
+                <div><b>Holistic Wellness</b></div>
+                <div>Personalized nutrition, wellness advice, and constant motivation for total transformation</div>
+            </div>
+        </div>
+    </section>
+    <!-- Motivation Carousel / Quotes -->
+    <section class="motivation-section">
+        <h2>Motivation For You</h2>
+        <div class="quoteList">
+            <div class="quote active">
+                <span>“The only bad workout is the one that didn’t happen.”</span>
+            </div>
+            <div class="quote">
+                <span>“Push yourself, because no one else is going to do it for you.”</span>
+            </div>
+            <div class="quote">
+                <span>“Your body can stand almost anything. It’s your mind that you have to convince.”</span>
+            </div>
+            <div class="quote">
+                <span>“Success starts with self-discipline.”</span>
+            </div>
+            <div class="quote">
+                <span>“Believe in yourself and all that you are.”</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 PGC Gym. All rights reserved.</p>
+    </footer>
+    <script>
+        // Navigation Toggle (same as your other pages)
+        let toggleButton = document.getElementById('navToggle');
+        let navList = document.querySelector('nav ul');
+        toggleButton.addEventListener('click', () => {
+            navList.classList.toggle('show');
+        });
+        navList.addEventListener('click', e => {
+            if (e.target.tagName === 'A') {
+                navList.classList.remove('show');
+            }
+        });
+
+        // Quote Carousel
+        const quotes = document.querySelectorAll('.quoteList .quote');
+        let current = 0;
+        setInterval(() => {
+            quotes[current].classList.remove('active');
+            current = (current + 1) % quotes.length;
+            quotes[current].classList.add('active');
+        }, 3300);
+    </script>
+</body>
+</html>

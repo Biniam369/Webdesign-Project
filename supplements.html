@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Supplements</title>
+  <link rel="stylesheet" href="Supplement.css" />
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="home.html" >Home</a>
+            </li>
+            <li>
+                <a href="Cardio.html" >Cardio</a>
+            </li>
+            <li>
+                <a href="Strength.html" >Strength</a>
+            </li>
+            <li>
+                <a href="nutrition.html" >Nutrition</a>
+            </li>
+            <li>
+                <a href="supplements.html" class="active">Supplements</a>
+            </li>
+            <li>
+                <a href="tracker.html" >Progress</a>
+            </li>
+            <li>
+                <a href="motivation.html" >Motivation</a>
+            </li>
+        </ul>
+    </nav>
+
+  <header>
+    <h1>Supplements Guide</h1>
+    <p>Compare popular supplements and learn how to use them effectively.</p>
+  </header>
+
+  <section>
+    <h2>Popular Supplements</h2>
+    <table>
+      <tr>
+        <th>Supplement</th>
+        <th>Benefits</th>
+        <th>Daily Dose</th>
+        <th>Side Effects</th>
+      </tr>
+      <tr class="supplement" data-tip="Best taken post-workout with carbs">
+        <td>Whey Protein</td>
+        <td>Muscle recovery</td>
+        <td>1-2 scoops</td>
+        <td>Bloating (rare)</td>
+      </tr>
+      <tr class="supplement" data-tip="Get some sunlight daily to boost absorption">
+        <td>Vitamin D</td>
+        <td>Bone health</td>
+        <td>600 IU</td>
+        <td>Fatigue (if overdosed)</td>
+      </tr>
+      <tr class="supplement" data-tip="Helps reduce inflammation and improve heart health">
+        <td>Omega-3</td>
+        <td>Heart function</td>
+        <td>1000 mg</td>
+        <td>Fishy aftertaste</td>
+      </tr>
+      <tr class="supplement" data-tip="Boosts muscle energy; take before workout">
+        <td>Creatine</td>
+        <td>Power output</td>
+        <td>5g</td>
+        <td>Water retention</td>
+      </tr>
+    </table>
+
+    <div id="tipBox"></div>
+  </section>
+
+  <script src="supplements.js" defer></script>
+</body>
+</html>

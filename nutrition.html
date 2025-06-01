@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nutrition</title>
+  <link rel="stylesheet" href="Supplement.css" />
+  <script src="nutrition.js" defer></script>
+</head>
+<body>
+  <nav>
+        <ul>
+            <li>
+                <a href="home.html" >Home</a>
+            </li>
+            <li>
+                <a href="Cardio.html" >Cardio</a>
+            </li>
+            <li>
+                <a href="Strength.html" >Strength</a>
+            </li>
+            <li>
+                <a href="nutrition.html" class="active">Nutrition</a>
+            </li>
+            <li>
+                <a href="supplements.html" >Supplements</a>
+            </li>
+            <li>
+                <a href="tracker.html" >Progress</a>
+            </li>
+            <li>
+                <a href="motivation.html" >Motivation</a>
+            </li>
+        </ul>
+  </nav>
+  <header>
+    <h1>Nutrition Tips</h1>
+    <p>Fuel your body with healthy, balanced meals for peak performance!</p>
+  </header>
+  <section>
+    <h2>Healthy Eating Tips</h2>
+    <ul>
+      <li>Eat a variety of colorful fruits and vegetables</li>
+      <li>Stay hydrated with plenty of water</li>
+      <li>Limit processed and sugary foods</li>
+      <li>Include lean protein in your meals</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Sample Meal Plans</h2>
+    <table>
+      <tr><th>Meal</th><th>Food</th></tr>
+      <tr><td>Breakfast</td><td>Oats with banana and almonds</td></tr>
+      <tr><td>Lunch</td><td>Grilled chicken salad with olive oil</td></tr>
+      <tr><td>Dinner</td><td>Steamed fish with veggies</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>What Meal Suits You Best?</h2>
+    <form id="mealQuiz">
+      <label for="goal">Your Goal:</label>
+      <select id="goal">
+        <option value="muscle">Build Muscle</option>
+        <option value="weight">Lose Weight</option>
+        <option value="energy">Boost Energy</option>
+      </select><br>
+      <label for="time">Preferred Meal Time:</label>
+      <select id="time">
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+      </select><br>
+      <button type="submit">Find My Meal</button>
+    </form>
+    <div id="mealResult" style="margin-top:20px;"></div>
+    <div id="mealImageContainer" style="text-align:center; margin-top:10px;"></div>
+  </section>
+</body>
+</html>

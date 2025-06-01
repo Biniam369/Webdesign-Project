@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Motivation & Community</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            font-family: 'Baloo 2', Arial, sans-serif;
+            background: radial-gradient(circle at 60% 30%, #0e2b29 0%, #11242a 50%, #131a1e 100%);
+            color: #fff;
+            padding: 100px 0 24px 0;
+            margin: 0;
+        }
+        nav {
+    background: #171c21;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    height: 64px;
+    margin: 0;
+    box-shadow: none; /* Flat style */
+    border-radius: 0;  /* Remove rounded corners */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+nav li {
+    flex: 1 1 0;
+    height: 100%;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    height: 100%;
+    font-size: 1.1em;
+    font-weight: 700;
+    background: none;
+    transition: background 0.18s, color 0.18s;
+    border: none;
+    outline: none;
+}
+
+nav a.active, nav a.active:hover {
+    background: #26dcb8;
+    color: #171c21;
+    font-weight: 700;
+}
+
+nav a:hover:not(.active) {
+    background: #29998a;
+    color: #fff;
+}
+
+        .container { max-width: 900px; margin: auto; padding: 20px; }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .quote-card {
+            background: #1f2a30;
+            border-left: 5px solid #26dcb8;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .comment-form {
+            background: #ffffff;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #000;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: transform 0.2s, background 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #45a049, #4CAF50);
+        }
+        .comment-section {
+            margin-top: 20px;
+        }
+        .comment {
+            background: #1f2a30;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            color: #fff;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="home.html" >Home</a>
+            </li>
+            <li>
+                <a href="Cardio.html">Cardio</a>
+            </li>
+            <li>
+                <a href="Strength.html" >Strength</a>
+            </li>
+            <li>
+                <a href="nutrition.html" >Nutrition</a>
+            </li>
+            <li>
+                <a href="supplements.html" >Supplements</a>
+            </li>
+            <li>
+                <a href="tracker.html" >Progress</a>
+            </li>
+            <li>
+                <a href="motivation.html" class="active">Motivation</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>✨ Motivation & Community ✨</h1>
+
+        <div class="quote-card">"Push yourself, because no one else is going to do it for you."</div>
+        <div class="quote-card">"Great things never come from comfort zones."</div>
+        <div class="quote-card">"Success is what comes after you stop making excuses."</div>
+
+        <h2>💪 Share Your Comment</h2>
+        <form class="comment-form" id="commentForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <textarea id="comment" rows="3" placeholder="Your Comment" required></textarea>
+            <button type="submit">Post Comment</button>
+        </form>
+
+        <div class="comment-section" id="commentSection">
+            <!-- Comments will appear here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const comment = document.getElementById('comment').value.trim();
+            if (name && comment) {
+                const commentBox = document.createElement('div');
+                commentBox.className = 'comment';
+                commentBox.innerHTML = '<strong>' + name + ':</strong> ' + comment;
+                document.getElementById('commentSection').prepend(commentBox);
+                document.getElementById('commentForm').reset();
+            }
+        });
+
+        let lastScrollTop = 0;
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                nav.classList.add('hide');
+            } else {
+                nav.classList.remove('hide');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+    </script>
+</body>
+</html>

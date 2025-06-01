@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Fitness Progress Tracker</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: 'Baloo 2', Arial, sans-serif;
+            background: radial-gradient(circle at 60% 30%, #0e2b29 0%, #11242a 50%, #131a1e 100%);
+            color: #fff;
+            padding: 100px 0 24px 0;
+            margin: 0;
+        }
+nav {
+    background: #171c21;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    height: 64px;
+    margin: 0;
+    box-shadow: none; /* Flat style */
+    border-radius: 0;  /* Remove rounded corners */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+nav li {
+    flex: 1 1 0;
+    height: 100%;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    height: 100%;
+    font-size: 1.1em;
+    font-weight: 700;
+    background: none;
+    transition: background 0.18s, color 0.18s;
+    border: none;
+    outline: none;
+}
+
+nav a.active, nav a.active:hover {
+    background: #26dcb8;
+    color: #171c21;
+    font-weight: 700;
+}
+
+nav a:hover:not(.active) {
+    background: #29998a;
+    color: #fff;
+}
+
+        .container { max-width: 900px; margin: auto; }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        h2 {
+            font-size: 1.8em;
+            margin: 20px 0 10px;
+            color: #26dcb8;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .form {
+            background: #ffffff;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        label { display: block; margin: 10px 0 5px; }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #000;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: transform 0.2s, background 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #45a049, #4CAF50);
+        }
+
+        #message {
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 18px;
+        }
+
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .styled-table th, .styled-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            color: #000;
+        }
+        .styled-table tbody tr:nth-child(even) {
+            background-color: #f3f3f3;
+        }
+        .styled-table tbody tr:hover {
+            background-color: #e0f7fa;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="home.html" >Home</a>
+            </li>
+            <li>
+                <a href="Cardio.html" >Cardio</a>
+            </li>
+            <li>
+                <a href="Strength.html" >Strength</a>
+            </li>
+            <li>
+                <a href="nutrition.html" >Nutrition</a>
+            </li>
+            <li>
+                <a href="supplements.html" >Supplements</a>
+            </li>
+            <li>
+                <a href="tracker.html" class="active">Progress</a>
+            </li>
+            <li>
+                <a href="motivation.html" >Motivation</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>🏋️‍♀️ Fitness Progress Tracker</h1>
+        <form id="progressForm" class="form">
+            <label>Weight (kg):</label>
+            <input type="number" id="weight" required>
+            <label>Distance (km):</label>
+            <input type="number" id="distance" required>
+            <label>Reps:</label>
+            <input type="number" id="reps" required>
+            <button type="submit">Log Progress</button>
+        </form>
+
+        <div id="message"></div>
+
+        <h2>Progress History</h2>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Weight (kg)</th>
+                    <th>Distance (km)</th>
+                    <th>Reps</th>
+                </tr>
+            </thead>
+            <tbody id="progressTableBody"></tbody>
+        </table>
+
+        <h2>Progress Graph</h2>
+        <canvas id="progressChart" width="400" height="200"></canvas>
+    </div>
+
+    <script>
+        let labels = [];
+        let weightData = [];
+        let distanceData = [];
+        let repsData = [];
+
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        const progressChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    { label: 'Weight (kg)', data: weightData, borderColor: 'rgba(255, 99, 132, 1)', fill: false },
+                    { label: 'Distance (km)', data: distanceData, borderColor: 'rgba(54, 162, 235, 1)', fill: false },
+                    { label: 'Reps', data: repsData, borderColor: 'rgba(75, 192, 192, 1)', fill: false }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        document.getElementById('progressForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const weight = document.getElementById('weight').value;
+            const distance = document.getElementById('distance').value;
+            const reps = document.getElementById('reps').value;
+            const today = new Date().toLocaleDateString();
+
+            const tableBody = document.getElementById('progressTableBody');
+            const newRow = tableBody.insertRow();
+            newRow.innerHTML = `<td>${today}</td><td>${weight}</td><td>${distance}</td><td>${reps}</td>`;
+
+            labels.push(today);
+            weightData.push(weight);
+            distanceData.push(distance);
+            repsData.push(reps);
+
+            progressChart.update();
+
+            document.getElementById('message').textContent = "🎉 Great job! Your progress has been logged! Keep going!";
+            document.getElementById('progressForm').reset();
+        });
+
+        let lastScrollTop = 0;
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                nav.classList.add('hide');
+            } else {
+                nav.classList.remove('hide');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardio Workouts</title>
+    <link rel="stylesheet" href="cardio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Navigation Bar-->
+
+    <nav>
+        <button class="toggle" id="navToggle">&#9776;</button>
+        <ul>
+            <li>
+                <a href="home.html" >Home</a>
+            </li>
+            <li>
+                <a href="Cardio.html" class="active">Cardio</a>
+            </li>
+            <li>
+                <a href="Strength.html" >Strength</a>
+            </li>
+            <li>
+                <a href="nutrition.html" >Nutrition</a>
+            </li>
+            <li>
+                <a href="supplements.html" >Supplements</a>
+            </li>
+            <li>
+                <a href="tracker.html" >Progress</a>
+            </li>
+            <li>
+                <a href="motivation.html" >Motivation</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Header -->
+    <header class="hero-header">
+    <div class="hero-text">
+        <h1>
+        Complete Daily <br>
+        <span class="highlight">Workout</span> At Home
+        </h1>
+        <p>
+        Boost your health and burn calories with these popular cardio exercises!
+        </p>
+    </div>
+    <div class="hero-image">
+        <img src="https://raw.githubusercontent.com/programmercloud/pgc-gym/main/img/banner-img.png" alt="Workout Guy">
+    </div>
+    </header>
+     <!-- workout list -->
+     <Section>
+        <h2>Popular Cardio Workouts</h2>
+        <div class="workout-cards">
+            <a href="https://www.youtube.com/watch?v=K6I24WgiiPw" style="text-decoration:none" >
+                <div class="workout-card">
+                <br>
+                <img src="Images/Treadmil.jpg" alt="Running" width="80">
+                <h3>Running (Treadmill) </h3>
+                <span class="tooltip">Click to watch the video</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=UWp-OvBTY2w&list=PLQzP5g6nPWKYkNMtzY095hFYxkIt0W5uH" style="text-decoration:none" >
+                <div class="workout-card">
+                    <br>
+                    <img src="Images/cycling.jpg" alt="Cycling" >
+                    <h3>Cycling</h3>
+                    <span class="tooltip">Click to watch the video</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=qNGJDb3pdc0" style="text-decoration:none">
+                <div class="workout-card">
+                    <br>
+                    <img src="Images/jump.jpg" alt="Jump Rope" width="80">
+                    <h3>Jump Rope</h3>
+                    <span class="tooltip">Click to watch the video</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=Hl6xSFB80E4" style="text-decoration:none">
+            <div class="workout-card">
+                <br>
+                <img src="Images/swimming.jpg" alt="Swimming" width="80">
+                <h3>Swimming</h3>
+                <span class="tooltip">Click to watch the video</span>
+            </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=cJaKRdwGx3Q" style="text-decoration:none" >
+            <div class="workout-card">
+                <br>
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=400&q=80" alt="HIIT" width="80">
+                <h3>High intensity interval training</h3>
+                <span class="tooltip">Click to watch the video</span>
+            </div>
+            </a>
+        </div>
+     </Section>
+     <!-- cardio table-->
+      <section>
+        <h2>Cardio Exercise Comparison</h2>
+        <table>
+            <tr>
+                <th>Workout</th>
+                <th>Duration(min)</th>
+                <th>Calories Burned</th>
+                <th>Intensity</th>
+            </tr>
+            <tr>
+                <td>Running</td>
+                <td>30</td>
+                <td>300</td>
+                <td>High</td>
+            </tr>
+            <tr>
+                <td>Cycling</td>
+                <td>30</td>
+                <td>250</td>
+                <td>Medium</td>
+            </tr>
+            <tr>
+                <td>Jump Rose</td>
+                <td>20</td>
+                <td>200</td>
+                <td>High</td>
+            </tr>
+            <tr>
+                <td>Swimming</td>
+                <td>30</td>
+                <td>280</td>
+                <td>Medium</td>
+            </tr>
+            <tr>
+                <td>HIIT</td>
+                <td>20</td>
+                <td>250</td>
+                <td>Very High</td>
+            </tr>
+        </table>
+      </section>
+      <!--Log workout form-->
+      <section>
+        <h2>Your Cardio Workout Form</h2>
+        <form action="" id="logForm">
+            <label for="workoutName">Workout:</label>
+            <select name="" id="workoutName">
+                <option value="Running">Running</option>
+                <option value="Cycling">Cycling</option>
+                <option value="Jump Roses">Jump Rose</option>
+                <option value="Swimming">Swimming</option>
+                <option value="HIIT">HIIT</option>
+            </select> <br>
+            <label for="duration">Duration (minutes):</label>
+            <input type="number" id="duration" required> <br>
+            <label for="calories">Calories Burned:</label>
+            <input type="number" id="calories" required> <br>
+            <div class="form-buttons">
+                <button type="submit">Log Workout</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        <div class="summaryDiv" id="summary"></div>
+      </section>
+     <footer>
+        <p>&copy; 2023 PGC Gym. All rights reserved.</p>
+     </footer>
+      <script src="cardio.js"></script>
+</body>
+</html>

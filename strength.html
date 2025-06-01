@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength</title>
+    <link rel="stylesheet" href="cardio.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+     <!-- Navigation Bar-->
+    <nav>
+        <button class="toggle" id="navToggle">&#9776;</button>
+        <ul>
+            <li>
+                <a href="home.html" >Home</a>
+            </li>
+            <li>
+                <a href="Cardio.html" >Cardio</a>
+            </li>
+            <li>
+                <a href="Strength.html" class="active">Strength</a>
+            </li>
+            <li>
+                <a href="nutrition.html" >Nutrition</a>
+            </li>
+            <li>
+                <a href="supplements.html" >Supplements</a>
+            </li>
+            <li>
+                <a href="tracker.html" >Progress</a>
+            </li>
+            <li>
+                <a href="motivation.html" >Motivation</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+     <header class="hero-header">
+        <div class="hero-text">
+            <h1>
+                Strength <br><span class="highlight">Training</span>
+                for a Stronger You
+            </h1>
+            <p>
+                Build muscle, increase strength, improve endurance, and boost your metabolism with these effective strength exercises
+            </p>
+        </div>
+        <div class="hero-image">
+        <img src="https://raw.githubusercontent.com/programmercloud/pgc-gym/main/img/why-us.png" alt="Strength Training">
+        </div>
+     </header>
+
+     <section>
+        <h2>Popular Strength Workouts</h2>
+        <div class="workout-cards">
+            <a href="https://www.youtube.com/watch?v=IODxDxX7oi4" style="text-decoration:none">
+                <div class="workout-card">
+                <img src="Images/pushups.jpg" alt="Push-Ups">
+                <h3>Push-Ups</h3>
+                <span class="tooltip">Click me to watch the video</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=gcNh17Ckjgg" style="text-decoration:none" >
+                <div class="workout-card">
+                    <img src="Images/squat.jpg" alt="Push-Ups">
+                    <h3>Squats</h3>
+                    <span class="tooltip">Click to watch the video</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=A2b2EmIg0dA" style="text-decoration:none"> 
+                <div class="workout-card">
+                    <img src="Images/plank.jpg" alt="Push-Ups">
+                    <h3>Plank</h3>
+                    <span class="tooltip">Click to watch the video</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=roCP6wCXPqo" style="text-decoration:none">
+                <div class="workout-card">
+                    <img src="Images/dumbell row.jpg" alt="Push-Ups">
+                    <h3>Dumbbell Row</h3>
+                    <span class="tooltip">Click to watch the video</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=wrwwXE_x-pQ" style="text-decoration:none">
+            <div class="workout-card">
+                <img src="Images/lunges.jpg" alt="Push-Ups">
+                <h3>Lunges</h3>
+                <span class="tooltip">Click to watch the video</span>
+            </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=3YvfRx31xDE" style="text-decoration:none"> 
+                <div class="workout-card">
+                    <img src="Images/pullups.jpg" alt="Push-Ups">
+                    <h3>Pull-Ups</h3>
+                    <span class="tooltip">Click to watch the video</span>
+                </div>
+            </a>
+        </div>
+     </section>
+
+     <section>
+        <h2>Strength Exercise Comparison</h2>
+        <table>
+            <tr>
+                <th>Exercise</th>
+                <th>Main Muscles Worked</th>
+                <th>Calories Burned (30min)</th>
+                <th>Level</th>
+            </tr>
+            <tr>
+                <td>Push-Ups</td>
+                <td>Chest, Triceps</td>
+                <td>150</td>
+                <td>Beginner</td>
+            </tr>
+              <tr>
+                <td>Squats</td>
+                <td>Legs, Glutes</td>
+                <td>200</td>
+                <td>Beginner</td>
+            </tr>
+              <tr>
+                <td>Plank</td>
+                <td>Core</td>
+                <td>100</td>
+                <td>All</td>
+            </tr>
+              <tr>
+                <td>Dumbbell Row</td>
+                <td>Back, Arms</td>
+                <td>120</td>
+                <td>Beginner</td>
+            </tr>
+              <tr>
+                <td>Lunges</td>
+                <td>Legs, Glutes</td>
+                <td>180</td>
+                <td>All</td>
+            </tr>
+              <tr>
+                <td>Pull-ups</td>
+                <td>Back, Arms</td>
+                <td>130</td>
+                <td>Intermediate</td>
+            </tr>
+        </table>
+     </section>
+
+     <section>
+        <h2>Tips for Strength Training</h2>
+        <ul class="tips-list">
+            <li>Start with bodyweight exercises before adding weights</li>
+            <li>Focus on proper form to prevent injuries</li>
+            <li>Rest 60-90 seconds between sets for optimal results</li>
+            <li>Gradually increase intensity as you get stronger</li>
+        </ul>
+     </section>
+     <section id="workout-quiz">
+        <h2>Which strength workout is right for you?</h2>
+        <form id="quiz">
+            <label>
+                What is your fitness level?
+                <select id="fitnessLevel" required>
+                    <option value="">Choose...</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+            </label> <br>
+            <label for="">
+                What is your primary goal?
+                <select name="" id="goal">
+                    <option value="">Choose...</option>
+                    <option value="Strength">Strength</option>
+                    <option value="Endurance">Improve Endurance</option>
+                    <option value="Muscle">Increase Muscle Mass</option>
+                </select>
+            </label> <br>
+            <p>
+                <button type="submit">See My Recommended Workout</button>
+            </p>
+        </form>
+        <div id="quizResult" style="margin-top:18px; font-weight:bold"></div>
+
+     </section>
+     <footer>
+        <p>&copy; 2023 PGC Gym. All rights reserved.</p>
+     </footer>
+     <script src="cardio.js"></script>
+</body>
+</html>
